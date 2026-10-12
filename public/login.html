@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in · Xtnd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Schibsted+Grotesk:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="plate" aria-label="Xtnd">
+      <div class="plate-text">
+        <p class="brand">Xtnd</p>
+        <p class="tagline">Bookkeeping and reconciliation for independent accountants.</p>
+      </div>
+    </aside>
+
+    <main class="panel">
+      <section class="view">
+        <header class="view-head">
+          <h1>Log in</h1>
+          <p class="intro">Welcome back. Enter the email and password you signed up with.</p>
+        </header>
+
+        <form id="login" novalidate>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" aria-describedby="email-error">
+            <p class="error" id="email-error" aria-live="polite" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="secret">
+              <input id="password" name="password" type="password" autocomplete="current-password" aria-describedby="password-error">
+              <button type="button" class="reveal" data-target="password" aria-label="Show password">Show</button>
+            </div>
+            <p class="error" id="password-error" aria-live="polite" hidden></p>
+          </div>
+
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button type="submit" class="primary">Log in</button>
+          <p class="switch">No account? <a href="signup.html">Create one</a></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

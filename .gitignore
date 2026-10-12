@@ -1,0 +1,8 @@
+# Saved accounts (real emails and password hashes) - never commit
+users.json
+users.json.tmp
+
+# Local Claude Code settings and skills
+.claude/
+
+node_modules/

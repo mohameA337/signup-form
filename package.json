@@ -1,0 +1,8 @@
+{
+  "name": "xtnd-signup",
+  "private": true,
+  "description": "Signup and login pages with a small Node server that saves accounts to users.json",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

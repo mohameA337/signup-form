@@ -1,0 +1,422 @@
+/*
+  Ledgerline signup.
+  Layout: a solid navy brand panel beside a quiet, left-aligned form column.
+*/
+:root {
+  --paper: #ffffff;
+  --field: #ffffff;
+  --ink: #1a1f2b;
+  --muted: #5b6475;
+  --line: #c9d0dc;
+  --accent: #1e3a8a;
+  --on-accent: #ffffff;
+  --error: #c62828;
+  --plate: #1b2a4a;
+  --plate-ink: #eef2fa;
+
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --ui: "Schibsted Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1524;
+    --field: #172036;
+    --ink: #e6eaf2;
+    --muted: #9aa4b8;
+    --line: #34405c;
+    --accent: #8fb0ff;
+    --on-accent: #0c1530;
+    --error: #ff8a80;
+    --plate: #0b1222;
+    --plate-ink: #e6eaf2;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1rem/1.5 var(--ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+[hidden] { display: none !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Shell ---------- */
+
+.shell {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+
+/* ---------- Plate ---------- */
+
+.plate {
+  background: var(--plate);
+  color: var(--plate-ink);
+  padding: 48px 40px;
+}
+
+.brand {
+  margin: 0;
+  font: 500 clamp(2.5rem, 5vw, 3.75rem)/1 var(--display);
+  letter-spacing: -0.01em;
+}
+
+.tagline {
+  margin: 14px 0 0;
+  max-width: 26ch;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+/* ---------- Form panel ---------- */
+
+.panel {
+  padding: 64px 48px 72px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.view {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.view-head { margin-bottom: 32px; }
+
+h1 {
+  margin: 0;
+  font: 600 clamp(1.875rem, 3.2vw, 2.375rem)/1.15 var(--display);
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+h1:focus { outline: none; }
+
+.intro {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+form {
+  display: grid;
+  gap: 24px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+label,
+legend {
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+legend { padding: 0; margin-bottom: 8px; }
+
+.optional,
+.hint {
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.hint {
+  margin: -4px 0 0;
+  font-size: 0.875rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+input.short { max-width: 8rem; font-variant-numeric: tabular-nums; }
+
+input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+input[aria-invalid="true"] { border-color: var(--error); }
+
+input[aria-invalid="true"]:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--error) 22%, transparent);
+}
+
+.error {
+  margin: 0;
+  color: var(--error);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ---------- Password ---------- */
+
+.secret { position: relative; }
+
+.secret input { padding-right: 76px; }
+
+.reveal {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  height: 34px;
+  min-width: 60px;
+  padding: 0 10px;
+  font: 500 0.875rem var(--ui);
+  color: var(--accent);
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reveal:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+
+.reveal:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.rules {
+  list-style: none;
+  margin: 2px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 16px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.rules li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mark {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.rules li[data-met="true"] { color: var(--ink); }
+
+.rules li[data-met="true"] .mark {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.rules li[data-met="true"] .mark::after {
+  content: "";
+  width: 6px;
+  height: 3px;
+  margin-top: -1px;
+  border-left: 1.5px solid var(--on-accent);
+  border-bottom: 1.5px solid var(--on-accent);
+  transform: rotate(-45deg);
+}
+
+/* ---------- Gender ---------- */
+
+.choices {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  gap: 8px;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 10px 12px;
+  font-weight: 400;
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.choice:has(input:checked) { border-color: var(--accent); }
+
+.other-detail { margin-top: 12px; display: grid; gap: 8px; }
+
+.other-detail label { font-size: 0.875rem; }
+
+.choice:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+input[type="radio"]:focus-visible { outline: none; }
+
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Terms ---------- */
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.check:has(input[aria-invalid="true"]) input { outline: 2px solid var(--error); outline-offset: 2px; }
+
+/* ---------- Buttons ---------- */
+
+.primary,
+.secondary {
+  height: 48px;
+  padding: 0 24px;
+  font: 600 1rem var(--ui);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary {
+  margin-top: 8px;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.primary:hover { background: color-mix(in srgb, var(--accent) 88%, var(--ink)); }
+
+.secondary {
+  margin-top: 28px;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+}
+
+.secondary:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+
+/* ---------- Success ---------- */
+
+/* ---------- Links, form-level errors, hello page ---------- */
+
+a {
+  color: var(--accent);
+  font-weight: 600;
+  text-underline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.form-error {
+  margin: 0;
+  padding: 12px 14px;
+  color: var(--error);
+  border: 1px solid var(--error);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+}
+
+.switch {
+  margin: -8px 0 0;
+  color: var(--muted);
+}
+
+.primary:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.hello-page {
+  min-height: 100%;
+  padding: 24px 16px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.hello-page h1 {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 860px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+
+  .plate {
+    padding: 28px 20px;
+  }
+
+  .panel { padding: 36px 20px 56px; }
+}
+
+@media (max-width: 520px) {
+  .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .rules { grid-template-columns: minmax(0, 1fr); }
+
+  .primary { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
