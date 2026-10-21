@@ -1,0 +1,18 @@
+{
+  "name": "xtnd-signup",
+  "private": true,
+  "description": "Signup and login pages with a small Node server that saves accounts to users.json",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.10"
+  }
+}

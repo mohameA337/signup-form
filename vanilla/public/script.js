@@ -106,6 +106,9 @@ const valueOf = (id) =>
 const errorFor = (id) => validators[id](valueOf(id));
 
 function showError(id, message) {
+  // #1 Find the closes error class with p tag
+  // #2 append p tag with error class next to element/id
+
   const el = document.getElementById(`${id}-error`);
   el.textContent = message;
   if (message === EMAIL_TAKEN) {

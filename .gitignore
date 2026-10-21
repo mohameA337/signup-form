@@ -6,3 +6,4 @@ users.json.tmp
 .claude/
 
 node_modules/
+dist/

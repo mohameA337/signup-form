@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create your account · Xtnd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Schibsted+Grotesk:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="plate" aria-label="Xtnd">
+        <div class="plate-text">
+          <p class="brand">Xtnd</p>
+          <p class="tagline">
+            Bookkeeping and reconciliation for independent accountants.
+          </p>
+        </div>
+      </aside>
+
+      <main class="panel">
+        <section id="form-view" class="view">
+          <header class="view-head">
+            <h1>Create your account</h1>
+            <p class="intro">All fields are required unless marked optional.</p>
+          </header>
+
+          <form id="signup" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                data-field="name"
+                aria-describedby="name-error"
+              />
+              <!-- <p class="error" aria-live="polite" hidden></p> -->
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                inputmode="email"
+                spellcheck="false"
+                data-field="email"
+                aria-describedby="email-error"
+              />
+              <p class="error" aria-live="polite" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <div class="secret">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autocomplete="new-password"
+                  data-field="password"
+                  aria-describedby="password-rules password-error"
+                />
+                <button
+                  type="button"
+                  class="reveal"
+                  data-target="password"
+                  aria-label="Show password"
+                >
+                  Show
+                </button>
+              </div>
+              <ul
+                class="rules"
+                id="password-rules"
+                aria-label="Password requirements"
+              >
+                <li data-rule="length">
+                  <span class="mark" aria-hidden="true"></span>At least 8
+                  characters<span class="sr-only state"> (not met)</span>
+                </li>
+                <li data-rule="upper">
+                  <span class="mark" aria-hidden="true"></span>One uppercase
+                  letter<span class="sr-only state"> (not met)</span>
+                </li>
+                <li data-rule="lower">
+                  <span class="mark" aria-hidden="true"></span>One lowercase
+                  letter<span class="sr-only state"> (not met)</span>
+                </li>
+                <li data-rule="number">
+                  <span class="mark" aria-hidden="true"></span>One number<span
+                    class="sr-only state"
+                  >
+                    (not met)</span
+                  >
+                </li>
+                <li data-rule="symbol">
+                  <span class="mark" aria-hidden="true"></span>One symbol, such
+                  as ! or #<span class="sr-only state"> (not met)</span>
+                </li>
+              </ul>
+              <p class="error" aria-live="polite" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="confirm">Confirm password</label>
+              <div class="secret">
+                <input
+                  id="confirm"
+                  name="confirm"
+                  type="password"
+                  autocomplete="new-password"
+                  data-field="confirm"
+                  aria-describedby="confirm-error"
+                />
+                <button
+                  type="button"
+                  class="reveal"
+                  data-target="confirm"
+                  aria-label="Show confirm password"
+                >
+                  Show
+                </button>
+              </div>
+              <p class="error" id="confirm-error" aria-live="polite" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="age">Age</label>
+              <p class="hint" id="age-hint">You must be 18 or older.</p>
+              <input
+                id="age"
+                name="age"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                class="short"
+                data-field="age"
+                aria-describedby="age-hint age-error"
+              />
+              <p class="error" id="age-error" aria-live="polite" hidden></p>
+            </div>
+
+            <fieldset class="field">
+              <legend>Gender <span class="optional">(optional)</span></legend>
+              <div class="choices">
+                <label class="choice"
+                  ><input
+                    type="radio"
+                    id="gender-male"
+                    name="gender"
+                    value="male"
+                  />Male</label
+                >
+                <label class="choice"
+                  ><input
+                    type="radio"
+                    id="gender-female"
+                    name="gender"
+                    value="female"
+                  />Female</label
+                >
+                <label class="choice"
+                  ><input
+                    type="radio"
+                    id="gender-other"
+                    name="gender"
+                    value="other"
+                  />Other</label
+                >
+                <label class="choice"
+                  ><input
+                    type="radio"
+                    id="gender-none"
+                    name="gender"
+                    value="prefer-not-to-say"
+                  />Prefer not to say</label
+                >
+              </div>
+              <div class="other-detail" id="gender-other-detail" hidden>
+                <label for="genderOther"
+                  >Describe your gender
+                  <span class="optional">(optional)</span></label
+                >
+                <input
+                  id="genderOther"
+                  name="genderOther"
+                  type="text"
+                  autocomplete="off"
+                  data-field="genderOther"
+                  aria-describedby="genderOther-error"
+                />
+                <p
+                  class="error"
+                  id="genderOther-error"
+                  aria-live="polite"
+                  hidden
+                ></p>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="check" for="terms">
+                <input
+                  id="terms"
+                  name="terms"
+                  type="checkbox"
+                  data-field="terms"
+                  aria-describedby="terms-error"
+                />
+                I agree to the Terms and Conditions
+              </label>
+              <p class="error" id="terms-error" aria-live="polite" hidden></p>
+            </div>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button type="submit" class="primary">Create account</button>
+            <p class="switch">
+              Already have an account? <a href="login.html">Log in</a>
+            </p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
